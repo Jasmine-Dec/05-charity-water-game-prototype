@@ -3,11 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
+    <title>Charity: Water Drop Run</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
+    <header class="top-bar">
+        <a class="brand" href="#" aria-label="Charity: water Drop Run home">
+            <img src="img/cw_logo_horizontal.png" alt="charity: water">
+            <span class="brand-game">DROP RUN</span>
+        </a>
+        <button class="game-status" id="game-button" type="button" aria-live="polite">
+            <span></span><strong class="status-label">START GAME</strong>
+        </button>
+    </header>
+
+    <main class="game-layout">
+        <section class="game-card" aria-labelledby="game-title">
+            <div class="board-heading">
+                <div>
+                    <h1 id="game-title">Collect every clean drop</h1>
+                </div>
+                <div class="board-actions">
+                    <button class="reset-button" id="reset-button" type="button" aria-label="Reset game">↻ Reset</button>
+                    <div class="drops-left"><span class="drop-indicator"></span> <span id="drops-remaining">20</span> drops left</div>
+                </div>
+            </div>
+
+            <div class="maze" aria-label="Maze game board">
+                <div class="maze-inner">
+                    <span class="wall" style="--x: 6.5%; --y: 6%; --w: 24%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 37%; --y: 6%; --w: 25%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 69%; --y: 6%; --w: 24%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 16%; --y: 18%; --w: 22%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 47%; --y: 18%; --w: 20%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 73%; --y: 18%; --w: 20%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 6.5%; --y: 18%; --w: 1.5%; --h: 25%;"></span>
+                    <span class="wall" style="--x: 37%; --y: 18%; --w: 1.5%; --h: 18%;"></span>
+                    <span class="wall" style="--x: 65%; --y: 18%; --w: 1.5%; --h: 18%;"></span>
+                    <span class="wall" style="--x: 47%; --y: 31%; --w: 1.5%; --h: 21%;"></span>
+                    <span class="wall" style="--x: 81%; --y: 32%; --w: 1.5%; --h: 20%;"></span>
+                    <span class="wall" style="--x: 14%; --y: 36%; --w: 16%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 56%; --y: 36%; --w: 19%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 6.5%; --y: 52%; --w: 23%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 39%; --y: 52%; --w: 23%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 69%; --y: 52%; --w: 24%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 29%; --y: 52%; --w: 1.5%; --h: 21%;"></span>
+                    <span class="wall" style="--x: 62%; --y: 52%; --w: 1.5%; --h: 21%;"></span>
+                    <span class="wall" style="--x: 6.5%; --y: 75%; --w: 16%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 76%; --y: 75%; --w: 17%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 21%; --y: 75%; --w: 1.5%; --h: 16%;"></span>
+                    <span class="wall" style="--x: 76%; --y: 75%; --w: 1.5%; --h: 16%;"></span>
+                    <span class="wall" style="--x: 30%; --y: 83%; --w: 15%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 55%; --y: 83%; --w: 15%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 6.5%; --y: 93%; --w: 29%; --h: 2%;"></span>
+                    <span class="wall" style="--x: 42%; --y: 90%; --w: 1.5%; --h: 10%;"></span>
+                    <span class="wall" style="--x: 52%; --y: 90%; --w: 1.5%; --h: 10%;"></span>
+                    <span class="wall" style="--x: 56%; --y: 93%; --w: 37%; --h: 2%;"></span>
+
+                    <span class="drop" style="--x: 3%; --y: 12%;"></span>
+                    <span class="drop" style="--x: 12%; --y: 14%;"></span>
+                    <span class="drop" style="--x: 23%; --y: 14%;"></span>
+                    <span class="drop" style="--x: 41%; --y: 14%;"></span>
+                    <span class="drop" style="--x: 53%; --y: 14%;"></span>
+                    <span class="drop" style="--x: 68%; --y: 14%;"></span>
+                    <span class="drop" style="--x: 96%; --y: 14%;"></span>
+                    <span class="drop" style="--x: 12%; --y: 29%;"></span>
+                    <span class="drop" style="--x: 39%; --y: 31%;"></span>
+                    <span class="drop" style="--x: 69%; --y: 31%;"></span>
+                    <span class="drop" style="--x: 94%; --y: 31%;"></span>
+                    <span class="drop" style="--x: 3%; --y: 45%;"></span>
+                    <span class="drop" style="--x: 35%; --y: 45%;"></span>
+                    <span class="drop" style="--x: 54%; --y: 45%;"></span>
+                    <span class="drop" style="--x: 93%; --y: 45%;"></span>
+                    <span class="drop" style="--x: 3%; --y: 66%;"></span>
+                    <span class="drop" style="--x: 51%; --y: 69%;"></span>
+                    <span class="drop" style="--x: 95%; --y: 67%;"></span>
+                    <span class="drop" style="--x: 13%; --y: 88%;"></span>
+                    <span class="drop" style="--x: 95%; --y: 88%;"></span>
+
+                    <span class="hazard hazard-insect hazard-insect-one" aria-label="Water-borne insect">✹</span>
+                    <span class="hazard hazard-insect hazard-insect-two" aria-label="Water-borne insect">✹</span>
+                    <span class="hazard hazard-insect hazard-insect-three" aria-label="Water-borne insect">✹</span>
+                    <span class="hazard hazard-polluted hazard-polluted-one" aria-label="Polluted drop">◉</span>
+                    <span class="hazard hazard-polluted hazard-polluted-two" aria-label="Polluted drop">◉</span>
+                    <span class="hazard hazard-polluted hazard-polluted-three" aria-label="Polluted drop">◉</span>
+                    <span class="hazard hazard-algae hazard-algae-one" aria-label="Algae bloom">▦</span>
+                    <span class="hazard hazard-algae hazard-algae-two" aria-label="Algae bloom">▦</span>
+                    <span class="hazard hazard-algae hazard-algae-three" aria-label="Algae bloom">▦</span>
+                    <span class="player" id="player" aria-label="Jerry can player">
+                        <span class="can-cap"></span>
+                        <span class="can-mark"></span>
+                    </span>
+                    <div class="game-message" id="game-message" hidden>
+                        <strong id="message-title"></strong>
+                        <span id="message-text"></span>
+                        <button class="restart-button resume-button" id="resume-button" type="button" hidden>Resume</button>
+                        <button class="restart-button" id="restart-button" type="button">Play again?</button>
+                    </div>
+                </div>
+            </div>
+            <div class="board-footer">
+                <span>Yellow jerry can = you · Clear the route without touching hazards</span>
+            </div>
+        </section>
+
+        <aside class="sidebar">
+            <section class="score-card" aria-label="Game score">
+                <p class="score-label">TOTAL SCORE</p>
+                <div class="score-number"><span class="score-value" id="score">0</span><span>× 2</span></div>
+                <div class="score-divider"></div>
+                <div class="lives-row">
+                    <span>Lives remaining</span>
+                    <span class="life-icons" id="lives" aria-label="3 lives">■ ■ ■</span>
+                </div>
+            </section>
+
+            <section class="info-card route-card">
+                <p class="card-caption">Collect clean water. Avoid every hazard.</p>
+                <ul class="legend">
+                    <li><span class="legend-icon clean">◉</span><span><strong>Clean water</strong><small>Collect +100 points</small></span></li>
+                    <li><span class="legend-icon polluted">◉</span><span><strong>Polluted drop</strong><small>Avoid — costs one life</small></span></li>
+                    <li><span class="legend-icon insect">✹</span><span><strong>Water-borne insect</strong><small>Moves through open paths</small></span></li>
+                    <li><span class="legend-icon algae">▦</span><span><strong>Algae bloom</strong><small>Blocks narrow routes</small></span></li>
+                </ul>
+            </section>
+
+            <section class="info-card controls-card">
+                <h2>Move the jerry can</h2>
+                <div class="key-guide">
+                    <button class="key up" type="button" data-direction="up" aria-label="Move up">↑</button>
+                    <button class="key key-left" type="button" data-direction="left" aria-label="Move left">←</button>
+                    <button class="key key-down" type="button" data-direction="down" aria-label="Move down">↓</button>
+                    <button class="key key-right" type="button" data-direction="right" aria-label="Move right">→</button>
+                </div>
+                <p class="key-copy">
+                    <span class="desktop-instruction">Use arrow keys to follow the open paths.</span>
+                    <span class="mobile-instruction">Hold the arrows to move.</span>
+                </p>
+                <p class="key-copy desktop-pause-instruction">Press the SPACE button to pause the game.</p>
+                <button class="pause-button" id="pause-button" type="button" disabled>Pause</button>
+            </section>
+
+            <div class="reminder"><span class="reminder-icon">✦</span><p>Every clean drop is a reminder: safe water changes everything.</p></div>
+        </aside>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
